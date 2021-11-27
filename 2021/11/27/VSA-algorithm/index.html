@@ -14,12 +14,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="算法背景：k-means算法k-means算法步骤：  初始化：随机找k个中心 Partitioning：将N个点分配到它距离最近的中心 Fitting：根据分配结果，计算每一类的平均值作为新的中心 Repeat：从2开始重复，迭代一定步数后停止  k-means算法实际上优化的损失函数是 $$\sum_{i&#x3D;1}^{k}\sum_{X_j\in \mathcal{R}_i} |X_j-c_i|^">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/11/27/VSA-algorithm/..%5Cimg%5CVSA_meshing.png">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b7c5585d-68c6-4eb6-9cd2-794b2d62e422/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20211127/us-west-2/s3/aws4_request&X-Amz-Date=20211127T114804Z&X-Amz-Expires=86400&X-Amz-Signature=e7caed11025d4e8b874d100ca4864cf467ca3d8eb88fb24e94eb02d89cbdbbf2&X-Amz-SignedHeaders=host&response-content-disposition=attachment;%20filename%20=%22Untitled.png%22&x-id=GetObject">
 <meta property="article:published_time" content="2021-11-27T11:15:34.000Z">
-<meta property="article:modified_time" content="2021-11-27T11:41:40.949Z">
+<meta property="article:modified_time" content="2021-11-27T11:48:47.160Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/11/27/VSA-algorithm/..%5Cimg%5CVSA_meshing.png">
+<meta name="twitter:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b7c5585d-68c6-4eb6-9cd2-794b2d62e422/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20211127/us-west-2/s3/aws4_request&X-Amz-Date=20211127T114804Z&X-Amz-Expires=86400&X-Amz-Signature=e7caed11025d4e8b874d100ca4864cf467ca3d8eb88fb24e94eb02d89cbdbbf2&X-Amz-SignedHeaders=host&response-content-disposition=attachment;%20filename%20=%22Untitled.png%22&x-id=GetObject">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -166,7 +166,7 @@
 <li>若输入曲面$<del>\mathcal{S}</del>$的三角形的三个顶点有三种不同颜色，则将这三种颜色对应的anchor vertices连接起来生成一个三角形，这些生成的三角形组成最终的三角形网格。</li>
 </ol>
 <p>若只是希望得到三角形网格，则VSA算法到这里就完成了。接下来还可以去掉三角形网格中一些冗余的边，得到更为简洁的多边形网格。</p>
-<p><img src="..%5Cimg%5CVSA_meshing.png" alt="meshing"></p>
+<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b7c5585d-68c6-4eb6-9cd2-794b2d62e422/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20211127/us-west-2/s3/aws4_request&X-Amz-Date=20211127T114804Z&X-Amz-Expires=86400&X-Amz-Signature=e7caed11025d4e8b874d100ca4864cf467ca3d8eb88fb24e94eb02d89cbdbbf2&X-Amz-SignedHeaders=host&response-content-disposition=attachment;%20filename%20=%22Untitled.png%22&x-id=GetObject" alt="meshing"></p>
 <p>左边和中间是着色的示意图，中间的灰色三角形就是三个顶点有三种颜色的三角形。右上是最终的三角形网格，右下是去掉三角形网格的一些边后的多边形网格。</p>
 
       
