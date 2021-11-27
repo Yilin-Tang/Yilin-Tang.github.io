@@ -1,96 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
 
-  
-  <title>VSA_algorithm | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法背景：k-means算法k-means算法步骤：  初始化：随机找k个中心 Partitioning：将N个点分配到它距离最近的中心 Fitting：根据分配结果，计算每一类的平均值作为新的中心 Repeat：从2开始重复，迭代一定步数后停止  k-means算法实际上优化的损失函数是 $$\sum_{i&#x3D;1}^{k}\sum_{X_j\in \mathcal{R}_i} |X_j-c_i|^">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Variational Shape Approximation(VSA) 是一种曲面简化算法。它在给定简化程度（使用多少个多边形面）的条件下，最小化与原曲面误差的。该算法分为计算近似多边形面（Proxy）和重建曲面两个部分。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VSA_algorithm">
+<meta property="og:title" content="VSA algorithm">
 <meta property="og:url" content="http://example.com/2021/11/27/VSA-algorithm/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="算法背景：k-means算法k-means算法步骤：  初始化：随机找k个中心 Partitioning：将N个点分配到它距离最近的中心 Fitting：根据分配结果，计算每一类的平均值作为新的中心 Repeat：从2开始重复，迭代一定步数后停止  k-means算法实际上优化的损失函数是 $$\sum_{i&#x3D;1}^{k}\sum_{X_j\in \mathcal{R}_i} |X_j-c_i|^">
+<meta property="og:site_name" content="Yilin&#39;s Blogs">
+<meta property="og:description" content="Variational Shape Approximation(VSA) 是一种曲面简化算法。它在给定简化程度（使用多少个多边形面）的条件下，最小化与原曲面误差的。该算法分为计算近似多边形面（Proxy）和重建曲面两个部分。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b7c5585d-68c6-4eb6-9cd2-794b2d62e422/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20211127/us-west-2/s3/aws4_request&X-Amz-Date=20211127T114804Z&X-Amz-Expires=86400&X-Amz-Signature=e7caed11025d4e8b874d100ca4864cf467ca3d8eb88fb24e94eb02d89cbdbbf2&X-Amz-SignedHeaders=host&response-content-disposition=attachment;%20filename%20=%22Untitled.png%22&x-id=GetObject">
 <meta property="article:published_time" content="2021-11-27T11:15:34.000Z">
-<meta property="article:modified_time" content="2021-11-27T11:48:47.160Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2021-11-27T13:34:52.246Z">
+<meta property="article:author" content="Yilin Tang">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b7c5585d-68c6-4eb6-9cd2-794b2d62e422/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20211127/us-west-2/s3/aws4_request&X-Amz-Date=20211127T114804Z&X-Amz-Expires=86400&X-Amz-Signature=e7caed11025d4e8b874d100ca4864cf467ca3d8eb88fb24e94eb02d89cbdbbf2&X-Amz-SignedHeaders=host&response-content-disposition=attachment;%20filename%20=%22Untitled.png%22&x-id=GetObject">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.4.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<link rel="canonical" href="http://example.com/2021/11/27/VSA-algorithm/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/27/VSA-algorithm/","path":"2021/11/27/VSA-algorithm/","title":"VSA algorithm"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>VSA algorithm | Yilin's Blogs</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Yilin's Blogs</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%83%8C%E6%99%AF%EF%BC%9Ak-means%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">算法背景：k-means算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VSA%E7%AE%97%E6%B3%95%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">VSA算法的核心概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VSA%E7%AE%97%E6%B3%95%E6%8F%8F%E8%BF%B0"><span class="nav-number">3.</span> <span class="nav-text">VSA算法描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7"><span class="nav-number">3.1.</span> <span class="nav-text">符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F%EF%BC%9A"><span class="nav-number">3.3.</span> <span class="nav-text">计算公式：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8F%96%E7%BD%91%E6%A0%BC"><span class="nav-number">4.</span> <span class="nav-text">提取网格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anchor-Vertices"><span class="nav-number">4.1.</span> <span class="nav-text">Anchor Vertices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edge-Extraction"><span class="nav-number">4.2.</span> <span class="nav-text">Edge Extraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Triangulation"><span class="nav-number">4.3.</span> <span class="nav-text">Triangulation</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yilin Tang</p>
+  <div class="site-description" itemprop="description">My interest is Computer Graphics, especially Geometry and Simulation, and Mathematics. use_math: true</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-VSA-algorithm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/11/27/VSA-algorithm/" class="article-date">
-  <time datetime="2021-11-27T11:15:34.000Z" itemprop="datePublished">2021-11-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      VSA_algorithm
-    </h1>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/27/VSA-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yilin Tang">
+      <meta itemprop="description" content="My interest is Computer Graphics, especially Geometry and Simulation, and Mathematics. use_math: true">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yilin's Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VSA algorithm
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-        <h2 id="算法背景：k-means算法"><a href="#算法背景：k-means算法" class="headerlink" title="算法背景：k-means算法"></a>算法背景：k-means算法</h2><p>k-means算法步骤：</p>
+
+      <time title="Created: 2021-11-27 19:15:34 / Modified: 21:34:52" itemprop="dateCreated datePublished" datetime="2021-11-27T19:15:34+08:00">2021-11-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Variational Shape Approximation(VSA) 是一种曲面简化算法。它在给定简化程度（使用多少个多边形面）的条件下，最小化与原曲面误差的。该算法分为<strong>计算近似多边形面（Proxy）</strong>和<strong>重建曲面</strong>两个部分。<span id="more"></span> </p>
+<blockquote>
+<p>mathjax的语法与markdown的语法矛盾，导致一些公式不能正常显示，我之后会修复这个问题。如果需要正常显示的文章，可以前往我的Notion：<a target="_blank" rel="noopener" href="https://rubberduck.notion.site/VSA-d94839649fbe4a3192238db36a4407e0">https://rubberduck.notion.site/VSA-d94839649fbe4a3192238db36a4407e0</a></p>
+</blockquote>
+<h2 id="算法背景：k-means算法"><a href="#算法背景：k-means算法" class="headerlink" title="算法背景：k-means算法"></a>算法背景：k-means算法</h2><p>k-means算法步骤：</p>
 <ol>
 <li>初始化：随机找k个中心</li>
 <li>Partitioning：将N个点分配到它距离最近的中心</li>
@@ -102,16 +216,16 @@
 <p>其中$k$是分类数，$\mathcal{R}_i$是划分的区域，$c_i$是$\mathcal{R}_i$的中心，$X_j$是点。</p>
 <p>VSA受到k-means算法的启发，将曲面简化过程分为<strong>Geometry Partitioning</strong>和<strong>Proxy Fitting</strong>两部分，对应于k-means算法中的Partitioning和Fitting。但曲面简化显然不是对三角形做简单聚类，三角形地分类需要保留几何信息，所以需要用到不同的损失函数，也就是$\mathcal{L}^2$或$\mathcal{L}^{2,1}$指标。</p>
 <h2 id="VSA算法的核心概念"><a href="#VSA算法的核心概念" class="headerlink" title="VSA算法的核心概念"></a>VSA算法的核心概念</h2><p>Proxy：向量对$P=(X,\mathbf{N})$，其中$X$是点的坐标，$\mathbf{N}$是法向量。可以将$P$想象为过点$X$、法向量为$\mathbf{N}$的平面</p>
-<p>$\mathcal{L}^2$：$\mathcal{L}^{2}\left(\mathcal{R}<em>{i}, P</em>{i}\right)=\iint_{x \in \mathcal{R}<em>{i}}\left|x-\Pi</em>{i}(x)\right|^{2} d x$</p>
-<p>$\mathcal{L}^{2,1}$：$\mathcal{L}^{2,1}\left(\mathcal{R}<em>{i}, P</em>{i}\right)=\iint_{x \in \mathcal{R}_{i}}\left|\mathbf{n}(x)-\mathbf{n}_i \right| d x$</p>
-<h2 id="VSA算法描述："><a href="#VSA算法描述：" class="headerlink" title="VSA算法描述："></a>VSA算法描述：</h2><h3 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h3><p>$\mathcal{S}$：输入的曲面</p>
+<p>$\mathcal{L}^2$：$\mathcal{L}^{2}(\mathcal{R}<em>i, P_i)=\iint</em>{x \in \mathcal{R}_i}|x-\Pi_i(x)|^{2} dx$</p>
+<p>$\mathcal{L}^{2,1}$：$\mathcal{L}^{2,1}(\mathcal{R}<em>i, P_i)=\iint</em>{x \in \mathcal{R}_i}|\mathbf{n}(x)-\mathbf{n}_i | dx$</p>
+<h2 id="VSA算法描述"><a href="#VSA算法描述" class="headerlink" title="VSA算法描述"></a>VSA算法描述</h2><h3 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h3><p>$\mathcal{S}$：输入的曲面</p>
 <p>$T_j$：$\mathcal{S}$中的三角形</p>
 <p>$\mathcal{R}$：当前分割</p>
 <p>$k$：分割的区域个数</p>
 <p>$\mathcal{R}_i$：$\mathcal{R}$的第i个区域</p>
 <p>$P_i=(X_i,\mathbf{N}_i)$：$\mathcal{R}_i$对应的Proxy</p>
 <p>$E$：$\mathcal{L}^2$或$\mathcal{L}^{2,1}$指标的一种</p>
-<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
 <li>初始化（Initial Seeding）： 随机确定$\mathcal{S}$上的$k$个种子三角形$ST_i(i=1,\dots,k)$，对$ST_i$分配$P_i=(X_i,\mathbf{N}_i)$，其中$X_i$是$T_i$的重心坐标，$\mathbf{N}_i$是$T_i$的法向量。</li>
 <li>Distortion-minimizing Flooding：从种子三角形”生长“出分割区域，即从$ST_i$出发，将$\mathcal{S}$的所有三角形划分到$ST_i$对应的Proxy<ol>
 <li>设置一个全局最小优先队列，队列元素为$(T_j,P_i)$，优先度为$E(T_j,P_i)$。同时给每个三角形$T_j$设置一个**被分配到哪个$P_i$**的标识。$ST_i$分配给$P_i$。</li>
@@ -140,15 +254,15 @@
 </ul>
 </li>
 <li>计算区域$\mathcal{R}_i$的最佳Proxy<ul>
-<li>$E=\mathcal{L}^2$：  $$<br>  X_{i}=\left(\sum_{T_{i} \in \mathcal{R}<em>{i}} g</em>{i}\left|T_{i}\right|\right) /\left(\sum_{T_{i} \in \mathcal{R}{i}}\left|T_{i}\right|\right)<br>  $$  $$\mathbf{N}<em>i=\begin{array}{l}<br>  \sum</em>{T_{i} \in \mathcal{R}{i}}\left(\frac{2\left|T{i}\right|}{72} M_{i}\left(\begin{array}{ccc}<br>  10 &amp; 7 &amp; 0 \<br>  7 &amp; 10 &amp; 0 \<br>  0 &amp; 0 &amp; 0<br>  \end{array}\right) M_{i}^{t}+\left|T_{i}\right| g_{i} g_{i}{ }^{t}\right)-\left[\sum_{i}\left|T_{i}\right|\right] X_{i} X_{i}^{t} \quad<br>  \text { where } M_{i}=\left(\frac{u_{2}-v_{1}}{v_{3}-v_{1}}\right) .<br>  \end{array}<br>  $$</li>
-<li>$E=\mathcal{L}^{2,1}$：$X_i$同上  $$\mathbf{N}<em>i=\sum</em>{T_{i} \in \mathcal{R}}|T_i|\mathbf{n}_i$$</li>
+<li>$E=\mathcal{L}^2$：  $$<br>  X_{i}=(\sum_{T_{i} \in \mathcal{R}<em>{i}} g</em>{i}|T_{i}|) /(\sum_{T_{i} \in \mathcal{R}{i}}|T_{i}|)<br>  $$  $$\mathbf{N}<em>i=\begin{array}{l}<br>  \sum</em>{T_{i} \in \mathcal{R}{i}}(\frac{2|T{i}|}{72} M_{i}(\begin{array}{ccc}<br>  10 &amp; 7 &amp; 0 \<br>  7 &amp; 10 &amp; 0 \<br>  0 &amp; 0 &amp; 0<br>  \end{array}) M_{i}^{t}+|T_{i}| g_{i} g_{i}{ }^{t})-[\sum_{i}|T_{i}|] X_{i} X_{i}^{t} \quad<br>  \text { where } M_{i}=(\frac{u_{2}-v_{1}}{v_{3}-v_{1}}) .<br>  \end{array}<br>  $$</li>
+<li>$E=\mathcal{L}^{2,1}$：$X_i$同上<br>  $$\mathbf{N}<em>i=\sum</em>{T_{i} \in \mathcal{R}}|T_i|\mathbf{n}_i$$</li>
 </ul>
 </li>
 </ul>
-<h1 id="提取网格"><a href="#提取网格" class="headerlink" title="提取网格"></a>提取网格</h1><p>VSA算法到此为止得到了分割$\mathcal{R}$和$k$个拟合好的$P_i=(X_i,\mathbf{N}_i)$，但还没有得到一个有效的网格表示。下面介绍如何提取网格。</p>
+<h2 id="提取网格"><a href="#提取网格" class="headerlink" title="提取网格"></a>提取网格</h2><p>VSA算法到此为止得到了分割$\mathcal{R}$和$k$个拟合好的$P_i=(X_i,\mathbf{N}_i)$，但还没有得到一个有效的网格表示。下面介绍如何提取网格。</p>
 <h3 id="Anchor-Vertices"><a href="#Anchor-Vertices" class="headerlink" title="Anchor Vertices"></a>Anchor Vertices</h3><p>现在已经找到了近似得最好的Proxies，而Proxies可以看作近似平面，接下来就要在Proxies的平面相交处添加顶点。</p>
 <ol>
-<li>在$<del>\mathcal{S}</del>$的顶点中寻找连接3个或以上区域的顶点，这些顶点会在新网格中生成称为<em><strong>anchor vertex</strong></em>的顶点</li>
+<li>在$\mathcal{S}$的顶点中寻找连接3个或以上区域的顶点，这些顶点会在新网格中生成称为<strong>anchor vertex</strong>的顶点</li>
 <li>计算这些顶点在它连接的所有$P_j$上的投影，并取这些投影的平均值，这就是该顶点对应的anchor vertex（可理解为原顶点在新网格中的坐标）</li>
 <li>为了保证每个区域至少有一个多边形，需要检查区域$\mathcal{R}_i$的边界是否有至少三个anchor vertex，不够的话则需要添加。</li>
 </ol>
@@ -163,115 +277,73 @@
 <li>给一个区域的多边形顶点（也就是anchor vertices）不同的颜色</li>
 <li>遍历该区域<strong>边界</strong>的所有原顶点，顶点着上与之最近的anchor vertex的颜色。</li>
 <li>遍历该区域<strong>内</strong>的所有原顶点，同样地，顶点着上与之最近的anchor vertex的颜色。</li>
-<li>若输入曲面$<del>\mathcal{S}</del>$的三角形的三个顶点有三种不同颜色，则将这三种颜色对应的anchor vertices连接起来生成一个三角形，这些生成的三角形组成最终的三角形网格。</li>
+<li>若输入曲面$\mathcal{S}$的三角形的三个顶点有三种不同颜色，则将这三种颜色对应的anchor vertices连接起来生成一个三角形，这些生成的三角形组成最终的三角形网格。</li>
 </ol>
 <p>若只是希望得到三角形网格，则VSA算法到这里就完成了。接下来还可以去掉三角形网格中一些冗余的边，得到更为简洁的多边形网格。</p>
 <p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b7c5585d-68c6-4eb6-9cd2-794b2d62e422/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45/20211127/us-west-2/s3/aws4_request&X-Amz-Date=20211127T114804Z&X-Amz-Expires=86400&X-Amz-Signature=e7caed11025d4e8b874d100ca4864cf467ca3d8eb88fb24e94eb02d89cbdbbf2&X-Amz-SignedHeaders=host&response-content-disposition=attachment;%20filename%20=%22Untitled.png%22&x-id=GetObject" alt="meshing"></p>
 <p>左边和中间是着色的示意图，中间的灰色三角形就是三个顶点有三种颜色的三角形。右上是最终的三角形网格，右下是去掉三角形网格的一些边后的多边形网格。</p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/27/VSA-algorithm/" data-id="ckwhqu06u0001lkup74iwbogf" class="article-share-link">Share</a>
-      
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
     </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yilin Tang</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2021/11/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
 
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li></ul>
     </div>
-  </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/11/27/VSA-algorithm/">VSA_algorithm</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/27/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
