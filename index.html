@@ -133,7 +133,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -201,7 +201,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-12-05 00:07:13 / Modified: 00:10:40" itemprop="dateCreated datePublished" datetime="2021-12-05T00:07:13+08:00">2021-12-05</time>
+      <time title="Created: 2021-12-05 00:07:13 / Modified: 10:17:48" itemprop="dateCreated datePublished" datetime="2021-12-05T00:07:13+08:00">2021-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -210,6 +210,10 @@
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Code/" itemprop="url" rel="index"><span itemprop="name">Code</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Code/README/" itemprop="url" rel="index"><span itemprop="name">README</span></a>
         </span>
     </span>
 
@@ -225,41 +229,14 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="the-code-is-available-in-httpsgithubcomyilin-tangdisplay-model-in-frame-mode"><a class="markdownIt-Anchor" href="#the-code-is-available-in-httpsgithubcomyilin-tangdisplay-model-in-frame-mode"></a> The code is available in <a target="_blank" rel="noopener" href="https://github.com/Yilin-Tang/display-model-in-frame-mode">https://github.com/Yilin-Tang/display-model-in-frame-mode</a>.</h2>
 <p>This code uses OpenGL and Assimp to display obj model in frame mode.</p>
-<h2 id="discription"><a class="markdownIt-Anchor" href="#discription"></a> Discription</h2>
-<p>This code can display obj model with triangulated mesh by OpenGL and Assimp in C++. It only requires the obj file have vertex coordinate and faces indices. I run it in Visual Studio 2019 and the required libraries are installed by vcpkg. I am not sure whether it can successfully run in other environments or conditions.</p>
-<h2 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h2>
-<h3 id="required-libraries"><a class="markdownIt-Anchor" href="#required-libraries"></a> Required Libraries</h3>
-<p>The following libraries are required:</p>
-<ul>
-<li>GLFW</li>
-<li>glad</li>
-<li>GLM  --a math library designed for OpenGL</li>
-<li>Assimp  --used to read and process obj file</li>
-</ul>
-<h3 id="change-property"><a class="markdownIt-Anchor" href="#change-property"></a> Change Property</h3>
-<h4 id="change-obj-file"><a class="markdownIt-Anchor" href="#change-obj-file"></a> change obj file</h4>
-<p>Replace your obj file in <code>main.cpp</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mesh mesh(&quot;bunny.obj&quot;);  // change it to your file path</span><br></pre></td></tr></table></figure>
-<h4 id="modify-vertex-shader"><a class="markdownIt-Anchor" href="#modify-vertex-shader"></a> modify vertex shader</h4>
-<p>The presented vertex shader <code>vertex_shader_for_bunny.txt</code> is specially for <code>bunny.obj</code> to move it to the center and enlarge it to be clear. If you change the obj file, remember to change the vertex shader too.</p>
-<p>Vertex shader and fragment shader can be changed in <code>main.cpp</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shader shader(&quot;vertex_shader_for_bunny.txt&quot;, &quot;fragment_shader.txt&quot;);</span><br></pre></td></tr></table></figure>
-<h4 id="others"><a class="markdownIt-Anchor" href="#others"></a> others</h4>
-<ul>
-<li>window’s size<br />
-change <code>SCR_width</code> and <code>SCR_height</code> in <code>main.cpp</code></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const unsigned int SCR_width = 1000;</span><br><span class="line">const unsigned int SCR_height = 1000;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>color:<br />
-change background color in <code>Mesh_assimp.cpp</code></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">void Mesh::draw(GLFWwindow* window, Shader&amp; shader)</span><br><span class="line">...</span><br><span class="line">    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);  // background color</span><br></pre></td></tr></table></figure>
-<p>change frame color in <code>fragment_shader.txt</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FragColor = vec4(1.0f,1.0f,1.0f,1.0f);</span><br></pre></td></tr></table></figure>
-<h2 id="reference"><a class="markdownIt-Anchor" href="#reference"></a> Reference</h2>
-<p>This code refers to the <a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">chinese translation</a> of <a target="_blank" rel="noopener" href="https://learnopengl.com/">https://learnopengl.com/</a>.</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/12/05/display-model-in-frame-mode/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
