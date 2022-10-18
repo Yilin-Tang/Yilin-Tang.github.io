@@ -20,29 +20,34 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yilin-tang.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Ch6 Remeshing Tags: October 18, 2022 9:32 PM  Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。  6.1 局部结构">
+<meta name="description" content="Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yilin&#39;s Blogs">
-<meta property="og:url" content="https://yilin-tang.github.io/2022/10/18/Ch6%20Remeshing/index.html">
+<meta property="og:title" content="Notes of Ch6 Remeshing ">
+<meta property="og:url" content="https://yilin-tang.github.io/2022/01/22/Ch6%20Remeshing/index.html">
 <meta property="og:site_name" content="Yilin&#39;s Blogs">
-<meta property="og:description" content="Ch6 Remeshing Tags: October 18, 2022 9:32 PM  Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。  6.1 局部结构">
+<meta property="og:description" content="Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://yilin-tang.github.io/2022/10/18/Ch6%20Remeshing/Ch6%20Remeshing%20acebd1ed1ec7451dae79523345419dd2/Untitled.png">
-<meta property="article:published_time" content="2022-10-18T13:43:01.261Z">
-<meta property="article:modified_time" content="2022-10-18T05:35:00.000Z">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4f48a51c-da92-4ed8-92e5-01aab6ef2ed9/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221018%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221018T143444Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=3a912f8e8c3e654fe33a26992f66349c797cbc87043b213c1551113082225272&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22Untitled.png%22&amp;x-id=GetObject">
+<meta property="article:published_time" content="2022-01-22T06:22:00.000Z">
+<meta property="article:modified_time" content="2022-10-18T14:37:13.671Z">
 <meta property="article:author" content="Yilin Tang">
+<meta property="article:tag" content="Graphics">
+<meta property="article:tag" content="Geometry">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Remeshing">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yilin-tang.github.io/2022/10/18/Ch6%20Remeshing/Ch6%20Remeshing%20acebd1ed1ec7451dae79523345419dd2/Untitled.png">
+<meta name="twitter:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4f48a51c-da92-4ed8-92e5-01aab6ef2ed9/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221018%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221018T143444Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=3a912f8e8c3e654fe33a26992f66349c797cbc87043b213c1551113082225272&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22Untitled.png%22&amp;x-id=GetObject">
 
 
-<link rel="canonical" href="https://yilin-tang.github.io/2022/10/18/Ch6%20Remeshing/">
+<link rel="canonical" href="https://yilin-tang.github.io/2022/01/22/Ch6%20Remeshing/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yilin-tang.github.io/2022/10/18/Ch6%20Remeshing/","path":"2022/10/18/Ch6 Remeshing/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://yilin-tang.github.io/2022/01/22/Ch6%20Remeshing/","path":"2022/01/22/Ch6 Remeshing/","title":"Notes of Ch6 Remeshing "}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Yilin's Blogs</title>
+<title>Notes of Ch6 Remeshing  | Yilin's Blogs</title>
   
 
 
@@ -119,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ch6-remeshing"><span class="nav-number">1.</span> <span class="nav-text"> Ch6 Remeshing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#preface"><span class="nav-number">1.1.</span> <span class="nav-text"> Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E5%B1%80%E9%83%A8%E7%BB%93%E6%9E%84"><span class="nav-number">1.2.</span> <span class="nav-text"> 6.1 局部结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#62-%E5%85%A8%E5%B1%80%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text"> 6.2 全局结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63-correspondences"><span class="nav-number">1.4.</span> <span class="nav-text"> 6.3 Correspondences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#64-voronoi-diagrams-and-delaunay-triangulations"><span class="nav-number">1.5.</span> <span class="nav-text"> 6.4 Voronoi Diagrams and Delaunay Triangulations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#65-triangle-based-remeshing"><span class="nav-number">1.6.</span> <span class="nav-text"> 6.5 Triangle-Based Remeshing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#651-greedy-remeshing"><span class="nav-number">1.7.</span> <span class="nav-text"> 6.5.1 Greedy Remeshing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#652-variational-remeshing"><span class="nav-number">1.8.</span> <span class="nav-text"> 6.5.2 Variational Remeshing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#653-incremental-remeshing"><span class="nav-number">1.9.</span> <span class="nav-text"> 6.5.3 Incremental Remeshing</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#66-quad-dominant-remeshing%E8%BF%99%E4%B8%80%E5%9D%97%E6%8F%90%E4%BA%A4%E7%9A%84%E6%97%B6%E5%80%99%E5%88%A0%E6%8E%89"><span class="nav-number">2.</span> <span class="nav-text"> 6.6 Quad-dominant Remeshing（这一块提交的时候删掉）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#661-lines-of-curvature"><span class="nav-number">2.1.</span> <span class="nav-text"> 6.6.1 Lines of Curvature</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#preface"><span class="nav-number">1.</span> <span class="nav-text"> Preface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E5%B1%80%E9%83%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text"> 6.1 局部结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#62-%E5%85%A8%E5%B1%80%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text"> 6.2 全局结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63-correspondences"><span class="nav-number">4.</span> <span class="nav-text"> 6.3 Correspondences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#64-voronoi-diagrams-and-delaunay-triangulations"><span class="nav-number">5.</span> <span class="nav-text"> 6.4 Voronoi Diagrams and Delaunay Triangulations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#65-triangle-based-remeshing"><span class="nav-number">6.</span> <span class="nav-text"> 6.5 Triangle-Based Remeshing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#651-greedy-remeshing"><span class="nav-number">7.</span> <span class="nav-text"> 6.5.1 Greedy Remeshing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#652-variational-remeshing"><span class="nav-number">8.</span> <span class="nav-text"> 6.5.2 Variational Remeshing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#653-incremental-remeshing"><span class="nav-number">9.</span> <span class="nav-text"> 6.5.3 Incremental Remeshing</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -138,12 +143,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -182,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2022/10/18/Ch6%20Remeshing/">
+    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2022/01/22/Ch6%20Remeshing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -195,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          Notes of Ch6 Remeshing 
         </h1>
 
         <div class="post-meta-container">
@@ -205,9 +210,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-10-18 21:43:01 / Modified: 13:35:00" itemprop="dateCreated datePublished" datetime="2022-10-18T21:43:01+08:00">2022-10-18</time>
+      <time title="Created: 2022-01-22 14:22:00" itemprop="dateCreated datePublished" datetime="2022-01-22T14:22:00+08:00">2022-01-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-10-18 22:37:13" itemprop="dateModified" datetime="2022-10-18T22:37:13+08:00">2022-10-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes-of-Polygon-Mesh-Processing/" itemprop="url" rel="index"><span itemprop="name">Notes of Polygon Mesh Processing</span></a>
+        </span>
     </span>
 
   
@@ -220,15 +240,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="ch6-remeshing"><a class="markdownIt-Anchor" href="#ch6-remeshing"></a> Ch6 Remeshing</h1>
-<p>Tags: October 18, 2022 9:32 PM</p>
-<h2 id="preface"><a class="markdownIt-Anchor" href="#preface"></a> Preface</h2>
+        <h2 id="preface"><a class="markdownIt-Anchor" href="#preface"></a> Preface</h2>
 <p>Remeshing的目标有两个</p>
 <ol>
 <li>减少曲面的复杂度，这称为<strong>网格简化</strong>，在Ch7介绍</li>
 <li>提高网格的质量。不同的应用中有不同的质量条件和要求</li>
 </ol>
 <p>与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。</p>
+<span id="more"></span> 
 <h2 id="61-局部结构"><a class="markdownIt-Anchor" href="#61-局部结构"></a> 6.1 局部结构</h2>
 <ul>
 <li>
@@ -262,7 +281,6 @@
 <li>高度正则网格：绝大部分都是正则顶点</li>
 <li>正则网格：所有顶点都是正则的，正则网格可以用一个2D数组表示（不懂怎么表示），可以有效地渲染（称为几何图像）</li>
 </ul>
-<p>。。。后面没看懂（可以删掉这句话）</p>
 <h2 id="63-correspondences"><a class="markdownIt-Anchor" href="#63-correspondences"></a> 6.3 Correspondences</h2>
 <p>remeshing算法要解决地一个关键问题是如何将新顶点与原顶点对应起来，主要有三种方法：</p>
 <ul>
@@ -306,16 +324,16 @@
 <p><strong>基于Lloyd松弛法的曲面remeshing方法</strong></p>
 <p>Lloyd松弛法只能应用在二维空间，因此若要在三维曲面中应用这种方法，就需要这个曲面的参数化（因为参数空间是二维的）。由Alliez等人提出的曲面remeshing方法需要输入曲面的全局一致参数化（global conformal parameterization）和一个“精心设计”的密度函数来弥补因为“变平”造成的失真。非均匀正则网格（即特征处网格小而多，其余地方大而少，而且所有顶点都满足正则性条件）也可以通过在密度函数中考虑网格大小来实现。一些突出的特征如角落等也可以通过在一个有界的Voronoi图上应用Lloyd迭代来保存（？）。</p>
 <p>该算法的伪代码如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">isotropic_remeshing(input triangle mesh M)</span><br><span class="line">	计算M的全局参数化</span><br><span class="line">	计算M的密度函数</span><br><span class="line">	在参数空间中：</span><br><span class="line">		根据密度函数随机采样，获得初始点集P</span><br><span class="line">		while 还未收敛</span><br><span class="line">			计算P的Voronoi图V</span><br><span class="line">			P<span class="operator">=</span>V的质心</span><br><span class="line">	将结果投射回曲面</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">isotropic_remeshing(input triangle mesh M)</span><br><span class="line">    计算M的全局参数化</span><br><span class="line">    计算M的密度函数</span><br><span class="line">    在参数空间中：</span><br><span class="line">        根据密度函数随机采样，获得初始点集P</span><br><span class="line">        while 还未收敛</span><br><span class="line">            计算P的Voronoi图V</span><br><span class="line">            P<span class="operator">=</span>V的质心</span><br><span class="line">    将结果投射回曲面</span><br></pre></td></tr></table></figure>
 <p><strong>Futhermore</strong></p>
 <p>为了减轻数值问题带来的高失真等其他问题，还可以将Lloyd松弛法作用在一族相互重叠的局部参数化上。</p>
 <h2 id="653-incremental-remeshing"><a class="markdownIt-Anchor" href="#653-incremental-remeshing"></a> 6.5.3 Incremental Remeshing</h2>
 <p>该方法产生各向同性的三角形网格，它的优点是实现起来更方便、更文件，而且不需要任何参数化，也不需要计算Voronoi cell之类的东西。</p>
 <p>该算法以一个<strong>目标边长</strong>为输入，然后重复地分割（split）长边、移除（collapse）短边、重新放置（relocate）顶点，直到所有边的长度都在目标边长附近。该算法的循环如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">remesh(target edge length)</span><br><span class="line">	low = 4/5 * target edge length</span><br><span class="line">	high = 4/3 * target edge length</span><br><span class="line">	for i = 0 to 10 do</span><br><span class="line">		split long edges(high)</span><br><span class="line">		collapse short edges(low,high)</span><br><span class="line">		equalize valences()</span><br><span class="line">		tangential relaxation()</span><br><span class="line">		project to surface()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">remesh(target edge length)</span><br><span class="line">    low = 4/5 * target edge length</span><br><span class="line">    high = 4/3 * target edge length</span><br><span class="line">    for i = 0 to 10 do</span><br><span class="line">        split long edges(high)</span><br><span class="line">        collapse short edges(low,high)</span><br><span class="line">        equalize valences()</span><br><span class="line">        tangential relaxation()</span><br><span class="line">        project to surface()</span><br></pre></td></tr></table></figure>
 <p>4/5和4/3对于算法收敛很重要，这两个数字是为了保证在一次split/collapse之后，边长会比之前更接近目标长度。</p>
 <p>下面介绍每一个子步骤。下图是每一个子步骤所包含的操作的示意图</p>
-<p><img src="Ch6%20Remeshing%20acebd1ed1ec7451dae79523345419dd2/Untitled.png" alt="Untitled" /></p>
+<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/4f48a51c-da92-4ed8-92e5-01aab6ef2ed9/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221018%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221018T143444Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=3a912f8e8c3e654fe33a26992f66349c797cbc87043b213c1551113082225272&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22Untitled.png%22&amp;x-id=GetObject" alt="Untitled" /></p>
 <p><strong>split long edges(high)</strong></p>
 <p>若边长&gt;<code>high</code>，则在该边中点处插入新顶点，与该边相邻的两个三角形也被分成两个</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">split long edges(high)</span><br><span class="line">	while exists edge e with length(e) &gt; high do</span><br><span class="line">		split e at midpoint(e)</span><br></pre></td></tr></table></figure>
@@ -341,21 +359,6 @@
 <li>特征边不能翻转</li>
 <li>（？）不懂</li>
 </ol>
-<h1 id="66-quad-dominant-remeshing这一块提交的时候删掉"><a class="markdownIt-Anchor" href="#66-quad-dominant-remeshing这一块提交的时候删掉"></a> 6.6 Quad-dominant Remeshing（这一块提交的时候删掉）</h1>
-<p>为什么需要四边形网格呢？因为四边形网格在一些下游应用中非常重要。例如，四边形网格的张量积特征在B样条拟合、仿真、纹理图集、高质量渲染中非常重要，而却四边形放个能够很好地捕捉自然或人造几何对象的对称性，因此在建模中也非常有用。</p>
-<p>一个各向异性的网格中的元素应该满足这样的要求：它在最小主曲率方向是拉长的，而在最大主曲率的方向是缩短的（曲率大的地方需要更密集的表示/采样，所以元素在这个方向应该比较短）。在第7章介绍的曲面简化算法能够生成满足以上性质的各向异性的网格，但并不能表示出曲率线的正交结构。如果希望能得到一个表示曲率线正交结构的各向异性网格，最好先计算一个四边形网格。</p>
-<h2 id="661-lines-of-curvature"><a class="markdownIt-Anchor" href="#661-lines-of-curvature"></a> 6.6.1 Lines of Curvature</h2>
-<p>下面介绍的Remeshing算法将会以一个三角形网格为输入，生成一个以四边形为主、反应了输入曲面对称性的网格。该算法包含三个阶段：</p>
-<ol>
-<li>从输入的三角形网格，计算各顶点的三维曲率张量，并计算离散的全局共形参数化（LSCM）。去掉法向项后，就在二维参数空间中得到了一个二维的曲率张量场。再通过与高斯核做卷积获得平滑的主曲率方向场，并计算脐点，脐点表示它的周围是各向同性的。</li>
-<li>计算曲率网络，并在参数空间重采样。曲率线的密度由用户指定的精度和曲率共同决定。</li>
-<li>在各向异性的区域，从两族曲率线的相交处提取顶点，并用直线连接顶点生成边（相当于用分段折线近似原来的曲率线）；在各向同性区域，选择脐点周围的一个子集，并用Delaunay三角剖分生成边。最终结果是一个以四边形为主的网格：四边形出现在各向异性区域，并由四边形的方向表现出局部的对称性，三角形则出现在各向同性的区域。</li>
-</ol>
-<p>该算法有一定的局限性：</p>
-<ol>
-<li>无法处理平的区域：</li>
-<li>只能</li>
-</ol>
 
     </div>
 
@@ -364,6 +367,13 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Graphics/" rel="tag"># Graphics</a>
+              <a href="/tags/Geometry/" rel="tag"># Geometry</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+              <a href="/tags/Notes/" rel="tag"># Notes</a>
+              <a href="/tags/Remeshing/" rel="tag"># Remeshing</a>
+          </div>
 
         
 
@@ -374,6 +384,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/09/19/Ch4%20Smoothing/" rel="next" title="Notes of Ch4 Smoothing">
+                  Notes of Ch4 Smoothing <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

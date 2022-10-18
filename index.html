@@ -133,12 +133,12 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -176,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2022/10/18/Ch6%20Remeshing/">
+    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2022/09/23/Ch9%20Deformation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +189,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/18/Ch6%20Remeshing/" class="post-title-link" itemprop="url">Untitled</a>
+          <a href="/2022/09/23/Ch9%20Deformation/" class="post-title-link" itemprop="url">Notes of Ch9 Deformation </a>
         </h2>
 
         <div class="post-meta-container">
@@ -199,9 +199,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-10-18 21:43:01 / Modified: 13:35:00" itemprop="dateCreated datePublished" datetime="2022-10-18T21:43:01+08:00">2022-10-18</time>
+      <time title="Created: 2022-09-23 23:22:00" itemprop="dateCreated datePublished" datetime="2022-09-23T23:22:00+08:00">2022-09-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-10-18 22:27:11" itemprop="dateModified" datetime="2022-10-18T22:27:11+08:00">2022-10-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes-of-Polygon-Mesh-Processing/" itemprop="url" rel="index"><span itemprop="name">Notes of Polygon Mesh Processing</span></a>
+        </span>
     </span>
 
   
@@ -214,143 +229,200 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="ch6-remeshing"><a class="markdownIt-Anchor" href="#ch6-remeshing"></a> Ch6 Remeshing</h1>
-<p>Tags: October 18, 2022 9:32 PM</p>
-<h2 id="preface"><a class="markdownIt-Anchor" href="#preface"></a> Preface</h2>
+          <p>本章将会介绍对一个给定的三角形网格进行交互变形的方法。这个主题主要有两个难点：</p>
+<ol>
+<li>怎么将复杂的数学公式隐藏起来，使得交互界面能够直观地操作呢</li>
+<li>算法需要足够高效和稳健才能用在交互设计中</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/23/Ch9%20Deformation/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2022/09/19/Ch4%20Smoothing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yilin Tang">
+      <meta itemprop="description" content="My interest is Computer Graphics, especially Geometry and Simulation, and Mathematics.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yilin's Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/19/Ch4%20Smoothing/" class="post-title-link" itemprop="url">Notes of Ch4 Smoothing</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-09-19 19:49:00" itemprop="dateCreated datePublished" datetime="2022-09-19T19:49:00+08:00">2022-09-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-10-18 22:29:42" itemprop="dateModified" datetime="2022-10-18T22:29:42+08:00">2022-10-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes-of-Polygon-Mesh-Processing/" itemprop="url" rel="index"><span itemprop="name">Notes of Polygon Mesh Processing</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="41-fourier-transform-and-manifold-harmonics"><a class="markdownIt-Anchor" href="#41-fourier-transform-and-manifold-harmonics"></a> 4.1  Fourier Transform and Manifold Harmonics</h2>
+<p>傅里叶变换可以用来实现低通滤波或其它更普通的滤波。我们首先会考虑单变量函数的傅里叶变换，再将这些概念推广到三角形网格上。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/19/Ch4%20Smoothing/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2022/01/22/Ch6%20Remeshing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yilin Tang">
+      <meta itemprop="description" content="My interest is Computer Graphics, especially Geometry and Simulation, and Mathematics.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yilin's Blogs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/22/Ch6%20Remeshing/" class="post-title-link" itemprop="url">Notes of Ch6 Remeshing </a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-01-22 14:22:00" itemprop="dateCreated datePublished" datetime="2022-01-22T14:22:00+08:00">2022-01-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-10-18 22:37:13" itemprop="dateModified" datetime="2022-10-18T22:37:13+08:00">2022-10-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes-of-Polygon-Mesh-Processing/" itemprop="url" rel="index"><span itemprop="name">Notes of Polygon Mesh Processing</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="preface"><a class="markdownIt-Anchor" href="#preface"></a> Preface</h2>
 <p>Remeshing的目标有两个</p>
 <ol>
 <li>减少曲面的复杂度，这称为<strong>网格简化</strong>，在Ch7介绍</li>
 <li>提高网格的质量。不同的应用中有不同的质量条件和要求</li>
 </ol>
 <p>与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。</p>
-<h2 id="61-局部结构"><a class="markdownIt-Anchor" href="#61-局部结构"></a> 6.1 局部结构</h2>
-<ul>
-<li>
-<p>元素类型</p>
-<p>元素类型有三角形和四边形两种，这两者之间有平凡的转化方式：</p>
-<p>四边形→三角形：在每个四边形加对角线</p>
-<p>三角形→四边形：第一种方式是找到每个三角形的重心，然后将重心与三条边的中点相连；第二种方式是将重心与三个角相连，然后去掉原来三角形的边</p>
-</li>
-<li>
-<p>元素形状</p>
-<p>元素形状分为各向同性与各向异性两种。各向同性的元素就是等边三角形和正方形，各项异性的就是除此以外的。各向异性的程度用外接圆半径与最短边长度之比来刻画。</p>
-<p>各向同性元素在数值模拟中更好。</p>
-<p>各向异性元素则有更好的模型表达能力，即相比各向同性元素，可以用更少的各向异性元素来表达一个模型（所以一般用在曲面简化中）；各向异性元素可以更好的表达几何体（圆柱体、圆锥体之类的）的结构</p>
-</li>
-<li>
-<p>元素密度</p>
-<p>称元素是均匀分布的，是指元素在模型各个位置均匀分布，否则称为非均匀分布的。非均匀的元素一般是在曲率大的地方有更小更多的元素（也称为适应性网格）。同样地，非均匀分布的网格有更好的模型表达能力</p>
-</li>
-<li>
-<p>元素排列与方向</p>
-<p>排列：remeshing实际上是重采样，在重采样的过程中，元素应该更多地排列在特征处（模型曲率大的地方），才能更好地表示不连续性。</p>
-<p>方向：各向异性元素在模型上的方向在曲面近似中有重要作用（一个横着的尖三角形和一个竖着的尖三角形效果是不一样的）</p>
-</li>
-</ul>
-<h2 id="62-全局结构"><a class="markdownIt-Anchor" href="#62-全局结构"></a> 6.2 全局结构</h2>
-<p>顶点正则的定义：对于三角形网格，如果内部顶点的度数是6或外部顶点的度数是4，则称该顶点是正则的；对于四边形网格，这两个数分别是4和3。</p>
-<p>根据顶点的正则性可以区分出4种网格：</p>
-<ul>
-<li>非正则网格：没有显示出正则性，即正则顶点非常少</li>
-<li>半正则网格：通过正则的曲面细分产生的，非正则顶点的数量较少</li>
-<li>高度正则网格：绝大部分都是正则顶点</li>
-<li>正则网格：所有顶点都是正则的，正则网格可以用一个2D数组表示（不懂怎么表示），可以有效地渲染（称为几何图像）</li>
-</ul>
-<p>。。。后面没看懂（可以删掉这句话）</p>
-<h2 id="63-correspondences"><a class="markdownIt-Anchor" href="#63-correspondences"></a> 6.3 Correspondences</h2>
-<p>remeshing算法要解决地一个关键问题是如何将新顶点与原顶点对应起来，主要有三种方法：</p>
-<ul>
-<li>全局参数化：如果输入的模型已经全局参数化了，也就是说每个点可以在2D的参数平面上表示，那么新顶点也可以在2D参数平面上对应起来</li>
-<li>局部参数化：如果新顶点在原顶点的参数化范围内，那么像上面那样做就可以了，如果离开了那个范围，就需要重新参数化</li>
-<li>投影：新顶点被投影到输入模型的最近的元素上（点、边或三角形）</li>
-</ul>
-<p>这三种方式的优劣：</p>
-<ul>
-<li>全局参数化的代价太大，而且可能会有参数扭曲，或者当网格需要被切成一个拓扑圆盘时的不连续性问题。</li>
-<li>直接做投影在新点离原曲面较远时可能会产生折叠，不过在实际中可以通过限制新点到切平面的移动来稳定这个算法</li>
-<li>局部参数化方法稳定且能产生高质量的结果，但算法开销比较大</li>
-</ul>
-<h2 id="64-voronoi-diagrams-and-delaunay-triangulations"><a class="markdownIt-Anchor" href="#64-voronoi-diagrams-and-delaunay-triangulations"></a> 6.4 Voronoi Diagrams and Delaunay Triangulations</h2>
-<p>见笔记（补链接）</p>
-<h2 id="65-triangle-based-remeshing"><a class="markdownIt-Anchor" href="#65-triangle-based-remeshing"></a> 6.5 Triangle-Based Remeshing</h2>
-<h2 id="651-greedy-remeshing"><a class="markdownIt-Anchor" href="#651-greedy-remeshing"></a> 6.5.1 Greedy Remeshing</h2>
-<p>见论文笔记（补另一篇的链接）</p>
-<h2 id="652-variational-remeshing"><a class="markdownIt-Anchor" href="#652-variational-remeshing"></a> 6.5.2 Variational Remeshing</h2>
-<p><strong>前言</strong></p>
-<p>设计变分法需要定义一个能量函数（也可以叫目标函数？）和最小化该能量函数的求解器。但是在remeshing中，要最终得到一个正则网格，很难找到一个单一的条件来优化（也就是很难找到一个能量函数），而就算找到了能量函数，由于可能的解（每一种三角化都是一种可能的解）过于庞大，也很找设计一个快速且稳定的求解器。</p>
-<p><strong>质心Voronoi图</strong></p>
-<p>不过，在二维中有这样一个观察：如果2D点的采样是各向同性的，那么这些点的三角化也会是“形状好（well-shaped）”的三角形。但这个观察在三维空间不成立，因为可能会出现一些非常平的四面体。那么在二维空间中，各向同性的三角化就可以转化为各向同性的点采样问题，下面将会讨论在二维空间获得各向同性的点采样的方法。</p>
-<p>给定有界区域<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Ω</mi><mo>⊂</mo><msup><mi mathvariant="double-struck">R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\Omega\subset\mathbb{R}^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord">Ω</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>和定义在其上的密度函数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ρ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\rho(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">ρ</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，我们想构造一个质心Voronoi图（centroidal Voronoi tessellation，centroidal其实指更广义的“心”，但因为之后用到的是质心，所以就直接写为质心了），即找到<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">\Omega</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Ω</span></span></span></span>中的一个有限点集，使得这个点集中的每个点与它对应的Voronoi cell的质心重合。Voronoi cell <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">V_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的质心<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub><mo>=</mo><mfrac><mrow><msub><mo>∫</mo><msub><mi>V</mi><mi>i</mi></msub></msub><mi>x</mi><mi>ρ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow><mrow><msub><mo>∫</mo><msub><mi>V</mi><mi>i</mi></msub></msub><mi>ρ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi>d</mi><mi>x</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">c_i=\frac{\int_{V_i}x\rho(x)dx}{\int_{V_i}\rho(x)dx}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.8018400000000003em;vertical-align:-1.1509200000000002em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6509200000000002em;"><span style="top:-2.3049999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.12251099999999993em;"><span style="top:-2.34418em;margin-left:-0.19445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:-0.22222em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.45592em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">ρ</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.84592em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="margin-right:0.19445em;position:relative;top:-0.0005599999999999772em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.12251099999999993em;"><span style="top:-2.34418em;margin-left:-0.19445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:-0.22222em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.45592em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mord mathdefault">ρ</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.1509200000000002em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-<p>质心Voronoi图在很多领域都有应用。</p>
-<p>质心Voronoi图与能量函数</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo stretchy="false">(</mo><msub><mi>p</mi><mn>1</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>p</mi><mi>n</mi></msub><mo separator="true">,</mo><msub><mi>V</mi><mn>1</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>V</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mo>=</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mo>∫</mo><msub><mi>V</mi><mi>i</mi></msub></msub><mi>ρ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mi mathvariant="normal">∥</mi><mi>x</mi><mo>−</mo><msub><mi>p</mi><mi>i</mi></msub><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">E(p_1,\cdots,p_n,V_1,\cdots,V_n)=\Sigma_{i=1}^n \int_{V_i}\rho(x)\|x-p_i\|^2 dx
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.3720499999999998em;vertical-align:-1.01205em;"></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.433619em;"><span style="top:-1.7880500000000004em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:-0.22222em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.01205em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">ρ</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mord">∥</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">d</span><span class="mord mathdefault">x</span></span></span></span></span></p>
-<p>（其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是采样点，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub><mo>⊂</mo><mi mathvariant="normal">Ω</mi></mrow><annotation encoding="application/x-tex">V_i\subset \Omega</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">⊂</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">Ω</span></span></span></span>是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>对应的区域，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">V_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>可以看作自由变量，而不一定是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的Voronoi cell）有以下重要的数学关系：当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{p_i\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{V_i\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>是质心Voronoi图时，该能量函数最小。如果已经给定了点集<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{p_i\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>，那么当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>V</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{V_i\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>p</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{p_i\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span>的Voronoi图时，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span></span></span></span>最小。</p>
-<p><strong>Lloyd松弛法</strong></p>
-<p>构造质心Voronoi图的一个方法是Lloyd松弛法（Lloyd’s relaxation method）。</p>
-<p>输入：密度函数和初始采样点集<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>p</mi><mi>i</mi></msub><msubsup><mo stretchy="false">}</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">\{p_i\}_{i=1}^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008664em;vertical-align:-0.258664em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span></p>
-<p>算法：</p>
-<ol>
-<li>计算<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>p</mi><mi>i</mi></msub><msubsup><mo stretchy="false">}</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">\{p_i\}_{i=1}^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008664em;vertical-align:-0.258664em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span>的Voronoi图</li>
-<li>计算每一个Voronoi cell <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">V_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的质心<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>c</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">c_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，将<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">{</mo><msub><mi>c</mi><mi>i</mi></msub><msubsup><mo stretchy="false">}</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup></mrow><annotation encoding="application/x-tex">\{c_i\}_{i=1}^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008664em;vertical-align:-0.258664em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span></span></span></span>作为新的采样点集</li>
-<li>重复步骤1和2直至收敛</li>
-</ol>
-<p><strong>基于Lloyd松弛法的曲面remeshing方法</strong></p>
-<p>Lloyd松弛法只能应用在二维空间，因此若要在三维曲面中应用这种方法，就需要这个曲面的参数化（因为参数空间是二维的）。由Alliez等人提出的曲面remeshing方法需要输入曲面的全局一致参数化（global conformal parameterization）和一个“精心设计”的密度函数来弥补因为“变平”造成的失真。非均匀正则网格（即特征处网格小而多，其余地方大而少，而且所有顶点都满足正则性条件）也可以通过在密度函数中考虑网格大小来实现。一些突出的特征如角落等也可以通过在一个有界的Voronoi图上应用Lloyd迭代来保存（？）。</p>
-<p>该算法的伪代码如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">isotropic_remeshing(input triangle mesh M)</span><br><span class="line">	计算M的全局参数化</span><br><span class="line">	计算M的密度函数</span><br><span class="line">	在参数空间中：</span><br><span class="line">		根据密度函数随机采样，获得初始点集P</span><br><span class="line">		while 还未收敛</span><br><span class="line">			计算P的Voronoi图V</span><br><span class="line">			P<span class="operator">=</span>V的质心</span><br><span class="line">	将结果投射回曲面</span><br></pre></td></tr></table></figure>
-<p><strong>Futhermore</strong></p>
-<p>为了减轻数值问题带来的高失真等其他问题，还可以将Lloyd松弛法作用在一族相互重叠的局部参数化上。</p>
-<h2 id="653-incremental-remeshing"><a class="markdownIt-Anchor" href="#653-incremental-remeshing"></a> 6.5.3 Incremental Remeshing</h2>
-<p>该方法产生各向同性的三角形网格，它的优点是实现起来更方便、更文件，而且不需要任何参数化，也不需要计算Voronoi cell之类的东西。</p>
-<p>该算法以一个<strong>目标边长</strong>为输入，然后重复地分割（split）长边、移除（collapse）短边、重新放置（relocate）顶点，直到所有边的长度都在目标边长附近。该算法的循环如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">remesh(target edge length)</span><br><span class="line">	low = 4/5 * target edge length</span><br><span class="line">	high = 4/3 * target edge length</span><br><span class="line">	for i = 0 to 10 do</span><br><span class="line">		split long edges(high)</span><br><span class="line">		collapse short edges(low,high)</span><br><span class="line">		equalize valences()</span><br><span class="line">		tangential relaxation()</span><br><span class="line">		project to surface()</span><br></pre></td></tr></table></figure>
-<p>4/5和4/3对于算法收敛很重要，这两个数字是为了保证在一次split/collapse之后，边长会比之前更接近目标长度。</p>
-<p>下面介绍每一个子步骤。下图是每一个子步骤所包含的操作的示意图</p>
-<p><img src="Ch6%20Remeshing%20acebd1ed1ec7451dae79523345419dd2/Untitled.png" alt="Untitled" /></p>
-<p><strong>split long edges(high)</strong></p>
-<p>若边长&gt;<code>high</code>，则在该边中点处插入新顶点，与该边相邻的两个三角形也被分成两个</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">split long edges(high)</span><br><span class="line">	while exists edge e with length(e) &gt; high do</span><br><span class="line">		split e at midpoint(e)</span><br></pre></td></tr></table></figure>
-<p><strong>collapse short edges(low,high)</strong></p>
-<p>若边长&lt;<code>low</code>，则找到该边ab其中一个顶点a的所有1-ring邻点，若任一邻点与b的距离&gt;<code>high</code>，则不执行collapse，否则将a移动到b处，移除该边</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">collapse short edges(low, high)</span><br><span class="line">	while exists edge e with length(e) &lt; low do</span><br><span class="line">		let e = (a,b) and let a[1],...,a[n] be the one-ring of a</span><br><span class="line">		collapse ok = true</span><br><span class="line">		for i = 1 to n do</span><br><span class="line">			if length(b,a[i]) &gt; high then</span><br><span class="line">				collapse ok = false</span><br><span class="line">			if collapse ok then</span><br><span class="line">				collapse a into b along e</span><br></pre></td></tr></table></figure>
-<p>这里有一个小问题：collapse可能会产生长边，该长边又会被split，这样就陷入了死循环。解决方法是在collapse之前先检查会不产生大于<code>high</code>的长边，如果会，则不执行collapse。</p>
-<p><strong>equalize valences()</strong></p>
-<p>在各向同性网格中，内部点和边界点的理想度数是6和4。因此如果flip（flip的含义见上图）之后所涉及到的4个点与目标度数差距之和比flip之前减小了，则执行flip，否则不执行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">equalize valences()</span><br><span class="line">	for each edge e do</span><br><span class="line">		let a, b, c, d be the vertices of the two triangles adjacent to e</span><br><span class="line">		deviation pre = abs(valence(a)-target val(a))</span><br><span class="line">									+ abs(valence(b)-target val(b))</span><br><span class="line">									+ abs(valence(c)-target val(c))</span><br><span class="line">									+ abs(valence(d)-target val(d))</span><br><span class="line">		flip(e)</span><br><span class="line">		deviation post = abs(valence(a)-target val(a))</span><br><span class="line">									+ abs(valence(b)-target val(b))</span><br><span class="line">									+ abs(valence(c)-target val(c))</span><br><span class="line">									+ abs(valence(d)-target val(d))</span><br><span class="line">		if deviation pre  deviation post do</span><br><span class="line">			flip(e)</span><br></pre></td></tr></table></figure>
-<p>这里也有一个小问题：如果该边正好是网格特征的位置，比如墙角，flip后不会导致特征丢失吗？答案是会的，所以后面会讲到如果是特征边则不flip。</p>
-<p><strong>tangential relaxation()</strong></p>
-<p>该步骤是平滑曲面：为了稳定最后的投影操作，顶点的移动需要被约束在顶点的切平面上</p>
-<p>对每一个顶点v，计算它所有邻点的重心q[v]，将q[v]投影到v的切平面上，这就是v的新位置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tangential relaxation()</span><br><span class="line">	for each vertex v do</span><br><span class="line">		q[v] = the barycenter of v&#x27;s neighbor vertices</span><br><span class="line">	for each vertex v do</span><br><span class="line">		p[v] = the projection point of q[v] onto the tagent plane of v</span><br></pre></td></tr></table></figure>
-<p>可以在这一步骤调整Laplace平滑的权重，可以获得均匀的三角形分布或者适应性的网格</p>
-<p>最后，<code>project to surface()</code>将顶点投影回曲面上（Q：怎么投影？以及是投影到上一轮的曲面还是最开始的曲面上？）</p>
-<p><strong>保持特征的几条规则（假设特征边/点已被标记出来）</strong></p>
-<ol>
-<li>角落点不参与任何操作</li>
-<li>特征点只能沿特征边collapse</li>
-<li>分割特征边生成的边和点也是特征</li>
-<li>特征边不能翻转</li>
-<li>（？）不懂</li>
-</ol>
-<h1 id="66-quad-dominant-remeshing这一块提交的时候删掉"><a class="markdownIt-Anchor" href="#66-quad-dominant-remeshing这一块提交的时候删掉"></a> 6.6 Quad-dominant Remeshing（这一块提交的时候删掉）</h1>
-<p>为什么需要四边形网格呢？因为四边形网格在一些下游应用中非常重要。例如，四边形网格的张量积特征在B样条拟合、仿真、纹理图集、高质量渲染中非常重要，而却四边形放个能够很好地捕捉自然或人造几何对象的对称性，因此在建模中也非常有用。</p>
-<p>一个各向异性的网格中的元素应该满足这样的要求：它在最小主曲率方向是拉长的，而在最大主曲率的方向是缩短的（曲率大的地方需要更密集的表示/采样，所以元素在这个方向应该比较短）。在第7章介绍的曲面简化算法能够生成满足以上性质的各向异性的网格，但并不能表示出曲率线的正交结构。如果希望能得到一个表示曲率线正交结构的各向异性网格，最好先计算一个四边形网格。</p>
-<h2 id="661-lines-of-curvature"><a class="markdownIt-Anchor" href="#661-lines-of-curvature"></a> 6.6.1 Lines of Curvature</h2>
-<p>下面介绍的Remeshing算法将会以一个三角形网格为输入，生成一个以四边形为主、反应了输入曲面对称性的网格。该算法包含三个阶段：</p>
-<ol>
-<li>从输入的三角形网格，计算各顶点的三维曲率张量，并计算离散的全局共形参数化（LSCM）。去掉法向项后，就在二维参数空间中得到了一个二维的曲率张量场。再通过与高斯核做卷积获得平滑的主曲率方向场，并计算脐点，脐点表示它的周围是各向同性的。</li>
-<li>计算曲率网络，并在参数空间重采样。曲率线的密度由用户指定的精度和曲率共同决定。</li>
-<li>在各向异性的区域，从两族曲率线的相交处提取顶点，并用直线连接顶点生成边（相当于用分段折线近似原来的曲率线）；在各向同性区域，选择脐点周围的一个子集，并用Delaunay三角剖分生成边。最终结果是一个以四边形为主的网格：四边形出现在各向异性区域，并由四边形的方向表现出局部的对称性，三角形则出现在各向同性的区域。</li>
-</ol>
-<p>该算法有一定的局限性：</p>
-<ol>
-<li>无法处理平的区域：</li>
-<li>只能</li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/22/Ch6%20Remeshing/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -432,187 +504,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/12/05/display-model-in-frame-mode/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2021/11/27/Ch4%20Smoothing/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yilin Tang">
-      <meta itemprop="description" content="My interest is Computer Graphics, especially Geometry and Simulation, and Mathematics.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yilin's Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/27/Ch4%20Smoothing/" class="post-title-link" itemprop="url">Note of Ch4 Smoothing</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-27 19:15:34" itemprop="dateCreated datePublished" datetime="2021-11-27T19:15:34+08:00">2021-11-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-10-18 21:49:15" itemprop="dateModified" datetime="2022-10-18T21:49:15+08:00">2022-10-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Graphics/" itemprop="url" rel="index"><span itemprop="name">Graphics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="ch4-smoothing"><a class="markdownIt-Anchor" href="#ch4-smoothing"></a> Ch4 Smoothing</h1>
-<h2 id="41-fourier-transform-and-manifold-harmonics"><a class="markdownIt-Anchor" href="#41-fourier-transform-and-manifold-harmonics"></a> 4.1  Fourier Transform and Manifold Harmonics</h2>
-<p>傅里叶变换可以用来实现低通滤波或其它更普通的滤波。我们首先会考虑单变量函数的傅里叶变换，再将这些概念推广到三角形网格上。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/27/Ch4%20Smoothing/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://yilin-tang.github.io/2021/11/27/Ch9%20Deformation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Yilin Tang">
-      <meta itemprop="description" content="My interest is Computer Graphics, especially Geometry and Simulation, and Mathematics.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yilin's Blogs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/27/Ch9%20Deformation/" class="post-title-link" itemprop="url">Note of Ch9 Deformation </a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-27 19:15:34" itemprop="dateCreated datePublished" datetime="2021-11-27T19:15:34+08:00">2021-11-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-10-18 21:49:30" itemprop="dateModified" datetime="2022-10-18T21:49:30+08:00">2022-10-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Graphics/" itemprop="url" rel="index"><span itemprop="name">Graphics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="ch9-deformation"><a class="markdownIt-Anchor" href="#ch9-deformation"></a> Ch9 Deformation</h1>
-<p>本章将会介绍对一个给定的三角形网格进行交互变形的方法。这个主题主要有两个难点：</p>
-<ol>
-<li>怎么将复杂的数学公式隐藏起来，使得交互界面能够直观地操作呢</li>
-<li>算法需要足够高效和稳健才能用在交互设计中</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/11/27/Ch9%20Deformation/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
