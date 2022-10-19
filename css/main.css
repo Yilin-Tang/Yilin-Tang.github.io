@@ -943,7 +943,7 @@ pre code {
 }
 .pdfobject-container iframe,
 .pdfobject-container embed {
-  height: 500px;
+  height: 650px;
   width: 100%;
 }
 .post-body .tabs {
@@ -2716,7 +2716,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #82ffff;
+  background: #0a6fff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
