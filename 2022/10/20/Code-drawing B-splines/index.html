@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6a2de517-c685-4d17-823f-36e9be7df27c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221020%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221020T181533Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=1da8b3aa6fe745f9fde5616b43cdc1c338c01bb4d8008fcb50aafe83711b7e20&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22Untitled.png%22&amp;x-id=GetObject">
 <meta property="article:published_time" content="2022-10-20T06:02:33.287Z">
-<meta property="article:modified_time" content="2022-10-20T18:36:14.575Z">
+<meta property="article:modified_time" content="2022-10-20T18:44:32.362Z">
 <meta property="article:author" content="Yilin Tang">
 <meta property="article:tag" content="Graphics">
 <meta property="article:tag" content="Geometry">
@@ -218,7 +218,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-10-21 02:36:14" itemprop="dateModified" datetime="2022-10-21T02:36:14+08:00">2022-10-21</time>
+        <time title="Modified: 2022-10-21 02:44:32" itemprop="dateModified" datetime="2022-10-21T02:44:32+08:00">2022-10-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -247,10 +247,12 @@
         <p><strong>The code is available in <a target="_blank" rel="noopener" href="https://github.com/Yilin-Tang/interactively-drawing-B-splines">interactively-drawing-B-splines</a>.</strong></p>
 <p>Draw a 2D uniform of quasi-uniform B-spline curve interactively by clicking control points.</p>
 <span id="more"></span> 
+<hr />
 <h1 id="interactively-drawing-b-splines"><a class="markdownIt-Anchor" href="#interactively-drawing-b-splines"></a> Interactively Drawing B-splines</h1>
 <p>This program is used to draw a 2D B-spline curve interactively by clicking control points. The interface will show the spline in green, the control polygon and points in yellow and the knot points in blue.</p>
 <h2 id="usage"><a class="markdownIt-Anchor" href="#usage"></a> Usage</h2>
 <p>You can change the type (<code>UNIFORM</code> or <code>QUASI_UNIFORM</code>) and the degree of the spline in <code>main.cpp</code>. You can also customize the knots, control points and degree of the B-spline curve with the type <code>CUSTOM</code> in <code>main.cpp</code>, as long as they satisfy <code>knots.size() = degree + control_points.size() + 1</code>.</p>
+<p>The code has to be compiled in <strong>Release</strong> mode.</p>
 <h2 id="demo"><a class="markdownIt-Anchor" href="#demo"></a> Demo</h2>
 <p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6a2de517-c685-4d17-823f-36e9be7df27c/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221020%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221020T181533Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=1da8b3aa6fe745f9fde5616b43cdc1c338c01bb4d8008fcb50aafe83711b7e20&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22Untitled.png%22&amp;x-id=GetObject" alt="demo" /></p>
 
