@@ -27,9 +27,9 @@
 <meta property="og:site_name" content="Yilin&#39;s Blogs">
 <meta property="og:description" content="Variational Shape Approximation(VSA) 是一种曲面简化算法。它在给定简化程度（使用多少个多边形面）的条件下，最小化与原曲面误差的。该算法分为计算近似多边形面（Proxy）和重建曲面两个部分。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f4685e-5ed7-4ae9-9211-83ba7d9b44ce/VSA_meshing.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221020%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221020T054909Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=5d18cbc89961db2250f9365a3910f84945c7f6936062570eac9b27561032b2e1&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22VSA_meshing.png%22&amp;x-id=GetObject">
+<meta property="og:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f4685e-5ed7-4ae9-9211-83ba7d9b44ce/VSA_meshing.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221208%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221208T111647Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=a8915334ff6d9679350706e246d8d2c58d92f7af4eda3cceb55a81b8ecea0933&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%3D%22VSA_meshing.png%22&amp;x-id=GetObject">
 <meta property="article:published_time" content="2021-11-27T11:15:34.000Z">
-<meta property="article:modified_time" content="2022-10-20T05:52:57.160Z">
+<meta property="article:modified_time" content="2022-12-08T11:17:18.424Z">
 <meta property="article:author" content="Yilin Tang">
 <meta property="article:tag" content="Graphics">
 <meta property="article:tag" content="Geometry">
@@ -37,7 +37,7 @@
 <meta property="article:tag" content="Approxiamtion">
 <meta property="article:tag" content="Simplication">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f4685e-5ed7-4ae9-9211-83ba7d9b44ce/VSA_meshing.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221020%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221020T054909Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=5d18cbc89961db2250f9365a3910f84945c7f6936062570eac9b27561032b2e1&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22VSA_meshing.png%22&amp;x-id=GetObject">
+<meta name="twitter:image" content="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f4685e-5ed7-4ae9-9211-83ba7d9b44ce/VSA_meshing.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221208%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221208T111647Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=a8915334ff6d9679350706e246d8d2c58d92f7af4eda3cceb55a81b8ecea0933&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%3D%22VSA_meshing.png%22&amp;x-id=GetObject">
 
 
 <link rel="canonical" href="https://yilin-tang.github.io/2021/11/27/VSA-algorithm/">
@@ -218,7 +218,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-10-20 13:52:57" itemprop="dateModified" datetime="2022-10-20T13:52:57+08:00">2022-10-20</time>
+        <time title="Modified: 2022-12-08 19:17:18" itemprop="dateModified" datetime="2022-12-08T19:17:18+08:00">2022-12-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -380,7 +380,7 @@
 <li>若输入曲面<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="script">S</mi></mrow><annotation encoding="application/x-tex">\mathcal{S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.075em;">S</span></span></span></span></span>的三角形的三个顶点有三种不同颜色，则将这三种颜色对应的anchor vertices连接起来生成一个三角形，这些生成的三角形组成最终的三角形网格。</li>
 </ol>
 <p>若只是希望得到三角形网格，则VSA算法到这里就完成了。接下来还可以去掉三角形网格中一些冗余的边，得到更为简洁的多边形网格。</p>
-<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f4685e-5ed7-4ae9-9211-83ba7d9b44ce/VSA_meshing.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221020%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221020T054909Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=5d18cbc89961db2250f9365a3910f84945c7f6936062570eac9b27561032b2e1&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%20%3D%22VSA_meshing.png%22&amp;x-id=GetObject" alt="meshing" /></p>
+<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2f4685e-5ed7-4ae9-9211-83ba7d9b44ce/VSA_meshing.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20221208%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20221208T111647Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=a8915334ff6d9679350706e246d8d2c58d92f7af4eda3cceb55a81b8ecea0933&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%3D%22VSA_meshing.png%22&amp;x-id=GetObject" alt="meshing" /></p>
 <p>左边和中间是着色的示意图，中间的灰色三角形就是三个顶点有三种颜色的三角形。右上是最终的三角形网格，右下是去掉三角形网格的一些边后的多边形网格。</p>
 
     </div>
