@@ -27,9 +27,8 @@
 <meta property="og:site_name" content="Yilin&#39;s Blogs">
 <meta property="og:description" content="Variational Shape Approximation(VSA) 是一种曲面简化算法。它在给定简化程度（使用多少个多边形面）的条件下，最小化与原曲面误差的。该算法分为计算近似多边形面（Proxy）和重建曲面两个部分。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.postimg.cc/Nf2zrvpx/VSA-meshing.png">
 <meta property="article:published_time" content="2021-11-27T11:15:34.000Z">
-<meta property="article:modified_time" content="2022-12-28T15:36:48.108Z">
+<meta property="article:modified_time" content="2023-03-10T15:13:45.988Z">
 <meta property="article:author" content="Yilin Tang">
 <meta property="article:tag" content="Graphics">
 <meta property="article:tag" content="Geometry">
@@ -37,7 +36,6 @@
 <meta property="article:tag" content="Approxiamtion">
 <meta property="article:tag" content="Simplication">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.postimg.cc/Nf2zrvpx/VSA-meshing.png">
 
 
 <link rel="canonical" href="https://yilin-tang.github.io/2021/11/27/VSA-algorithm/">
@@ -218,7 +216,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-12-28 23:36:48" itemprop="dateModified" datetime="2022-12-28T23:36:48+08:00">2022-12-28</time>
+        <time title="Modified: 2023-03-10 23:13:45" itemprop="dateModified" datetime="2023-03-10T23:13:45+08:00">2023-03-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -380,7 +378,6 @@
 <li>若输入曲面<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="script">S</mi></mrow><annotation encoding="application/x-tex">\mathcal{S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord"><span class="mord mathcal" style="margin-right:0.075em;">S</span></span></span></span></span>的三角形的三个顶点有三种不同颜色，则将这三种颜色对应的anchor vertices连接起来生成一个三角形，这些生成的三角形组成最终的三角形网格。</li>
 </ol>
 <p>若只是希望得到三角形网格，则VSA算法到这里就完成了。接下来还可以去掉三角形网格中一些冗余的边，得到更为简洁的多边形网格。</p>
-<p><img src="https://i.postimg.cc/Nf2zrvpx/VSA-meshing.png" alt="VSA-meshing.png" /></p>
 <p>左边和中间是着色的示意图，中间的灰色三角形就是三个顶点有三种颜色的三角形。右上是最终的三角形网格，右下是去掉三角形网格的一些边后的多边形网格。</p>
 
     </div>
@@ -427,7 +424,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
