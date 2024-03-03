@@ -20,16 +20,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yilin-tang.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。  6.1 局部结构   元素类型 元素类型有三角形和四边形两种，这两者之间有平凡的转化方式： 四边形→三角形：">
+<meta name="description" content="Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Notes of Ch6 Remeshing ">
 <meta property="og:url" content="https://yilin-tang.github.io/2022/01/22/Ch6%20Remeshing/index.html">
 <meta property="og:site_name" content="Yilin&#39;s Blogs">
-<meta property="og:description" content="Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。  6.1 局部结构   元素类型 元素类型有三角形和四边形两种，这两者之间有平凡的转化方式： 四边形→三角形：">
+<meta property="og:description" content="Preface Remeshing的目标有两个  减少曲面的复杂度，这称为网格简化，在Ch7介绍 提高网格的质量。不同的应用中有不同的质量条件和要求  与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4f48a51c-da92-4ed8-92e5-01aab6ef2ed9/Untitled.png">
 <meta property="article:published_time" content="2022-01-22T06:22:00.000Z">
-<meta property="article:modified_time" content="2024-03-03T16:07:13.482Z">
+<meta property="article:modified_time" content="2024-03-03T16:19:59.368Z">
 <meta property="article:author" content="Yilin Tang">
 <meta property="article:tag" content="Graphics">
 <meta property="article:tag" content="Geometry">
@@ -218,7 +218,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2024-03-04 00:07:13" itemprop="dateModified" datetime="2024-03-04T00:07:13+08:00">2024-03-04</time>
+        <time title="Modified: 2024-03-04 00:19:59" itemprop="dateModified" datetime="2024-03-04T00:19:59+08:00">2024-03-04</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -250,7 +250,7 @@
 <li>减少曲面的复杂度，这称为<strong>网格简化</strong>，在Ch7介绍</li>
 <li>提高网格的质量。不同的应用中有不同的质量条件和要求</li>
 </ol>
-<p>与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。</p>
+<p>与曲面修复不同，remeshing的输入已经是流形了，因此网格质量是指非拓扑的方面，例如采样密度、正则性、元素方向与排列，元素形状等。<span id="more"></span></p>
 <h2 id="61-局部结构"><a class="markdownIt-Anchor" href="#61-局部结构"></a> 6.1 局部结构</h2>
 <ul>
 <li>
